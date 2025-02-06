@@ -14,24 +14,57 @@ export class MyCard extends LitElement {
 
   constructor() {
     super();
-    this.title = "My card";
+    this.title = "New Vid!";
+    this.image = "https://variety.com/wp-content/uploads/2021/07/Rick-Astley-Never-Gonna-Give-You-Up.png";
+    this.link = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
   }
 
   static get styles() {
     return css`
       :host {
-        display: block;
+        display: inline-block;
+        background-color:pink;
+        width: 150px;
+        border:solid;
+        border-color:cyan;
+      }
+      img{
+        width:150px;
+      }
+      div h1{
+        text-align:center;
+        font-size:20px;
+      }
+      div, a{
+        text-align:center;
+        text-decoration:none;
+        color:black;
+      }
+      a:hover{
+        color:red;
+        cursor:not-allowed;
       }
     `;
   }
 
   render() {
-    return html`<div>${this.title}</div>`;
+    return html`
+      <div>
+      <img src="${this.image}"/>
+
+      <h1>${this.title}</h1>
+
+      <a href="${this.link}">Please Click Me!</a>
+      
+
+      </div>`;
   }
 
   static get properties() {
     return {
       title: { type: String },
+      image: { type: String },
+      link: { type: String},
     };
   }
 }
