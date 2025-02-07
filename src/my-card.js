@@ -26,7 +26,11 @@ bgColorList.forEach(card=> card.classList.toggle('fancy'))
 //Change Title
 document.querySelector('#title-change').addEventListener('click',(e) =>{
 
- document.querySelector('my-card').title = 'RAAAAAAH';
+  const bgColorList = document.querySelectorAll('my-card');
+
+  bgColorList.forEach(card=> card.title = 'RAAAAAAH');
+
+ //document.querySelector('my-card').title = 'RAAAAAAH';
         
 });
 
@@ -34,7 +38,11 @@ document.querySelector('#title-change').addEventListener('click',(e) =>{
 
 document.querySelector('#image-change').addEventListener('click',(e) =>{
 
-  document.querySelector('my-card').image = 'https://uploads.dailydot.com/2024/08/bruh.jpg';
+  const bgColorList = document.querySelectorAll('my-card');
+
+  bgColorList.forEach(card=> card.image = 'https://uploads.dailydot.com/2024/08/bruh.jpg');
+
+  //document.querySelector('my-card').image = 'https://uploads.dailydot.com/2024/08/bruh.jpg'; 
          
  });
 
