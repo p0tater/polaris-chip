@@ -26,9 +26,9 @@ bgColorList.forEach(card=> card.classList.toggle('fancy'))
 //Change Title
 document.querySelector('#title-change').addEventListener('click',(e) =>{
 
-  const bgColorList = document.querySelectorAll('my-card');
+  const titleList = document.querySelectorAll('my-card');
 
-  bgColorList.forEach(card=> card.title = 'RAAAAAAH');
+  titleList.forEach(card=> card.title = 'RAAAAAAH');
 
  //document.querySelector('my-card').title = 'RAAAAAAH';
         
@@ -38,9 +38,9 @@ document.querySelector('#title-change').addEventListener('click',(e) =>{
 
 document.querySelector('#image-change').addEventListener('click',(e) =>{
 
-  const bgColorList = document.querySelectorAll('my-card');
+  const imageList = document.querySelectorAll('my-card');
 
-  bgColorList.forEach(card=> card.image = 'https://uploads.dailydot.com/2024/08/bruh.jpg');
+  imageList.forEach(card=> card.image = 'https://uploads.dailydot.com/2024/08/bruh.jpg');
 
   //document.querySelector('my-card').image = 'https://uploads.dailydot.com/2024/08/bruh.jpg'; 
          
