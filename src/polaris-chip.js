@@ -65,6 +65,7 @@ export class PolarisChip extends LitElement {
         background-color: grey;
         border: 1px solid black;
       }
+      
     `;
   }
 

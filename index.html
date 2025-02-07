@@ -19,6 +19,14 @@
     polaris-chip {
       margin: 16px;
     }
+    button{
+      display:grid;
+    }
+    .fancy{
+        background-color:purple;
+        border-color:black;
+      }
+      
   </style>
   <title>polaris-chip / my-card</title>
 </head>
@@ -31,13 +39,21 @@
   <polaris-chip title="Sports are the only thing that matter"></polaris-chip>
   <polaris-chip title="Grants and donations"></polaris-chip>
 
-  <h1>my-cards</h1>
-  <my-card></my-card>
-  <my-card></my-card>
-  <my-card></my-card>
-  <my-card></my-card>
-  <my-card></my-card>
 
+
+  <h1>my-cards</h1>
+  <button id="duplicate">Duplicate!</button>
+  <button id="background">Background Change!</button>
+  <button id="title-change">Title Change!</button>
+  <button id="image-change">Image Change!</button>
+  <button id="delete">Delete!</button>
+<div id="container">
+  <my-card></my-card>
+  <my-card></my-card>
+  <my-card></my-card>
+  <my-card></my-card>
+  <my-card></my-card>
+</div>
   <!-- this is what is bringing in the definition for this tag -->
   <script type="module" src="./src/polaris-chip.js"></script>
   <script type="module" src="./src/my-card.js"></script>

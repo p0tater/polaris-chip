@@ -5,8 +5,50 @@ import { LitElement, html, css } from 'lit';
  * 1. Get you HTML from your card working in here 
  * 2. Get your CSS rescoped as needed to work here
  */
+//DUPLICATOR
+document.querySelector('#duplicate').addEventListener('click',(e)=>{
+  const newCard = document.querySelector('my-card').cloneNode(true);
+
+  document.querySelector('#container').appendChild(newCard);
+
+
+});
+
+//Toggle Backgrounds
+
+document.querySelector('#background').addEventListener('click',(e) =>{
+  const bgColorList = document.querySelectorAll('my-card');
+
+bgColorList.forEach(card=> card.classList.toggle('fancy'))
+        
+});
+
+//Change Title
+document.querySelector('#title-change').addEventListener('click',(e) =>{
+
+ document.querySelector('my-card').title = 'RAAAAAAH';
+        
+});
+
+//Change Image
+
+document.querySelector('#image-change').addEventListener('click',(e) =>{
+
+  document.querySelector('my-card').image = 'https://uploads.dailydot.com/2024/08/bruh.jpg';
+         
+ });
+
+ //Delete Cards!
+
+ document.querySelector('#delete').addEventListener('click',(e) => {
+  let cardList = document.querySelectorAll('my-card');
+  if(cardList.length > 1){
+    cardList[cardList.length - 1].remove();
+  }
+});
 
 export class MyCard extends LitElement {
+
 
   static get tag() {
     return 'my-card';
@@ -44,9 +86,11 @@ export class MyCard extends LitElement {
         color:red;
         cursor:not-allowed;
       }
+
+      
     `;
   }
-
+//@click=
   render() {
     return html`
       <div>
