@@ -27,7 +27,7 @@ bgColorList.forEach(card=> card.classList.toggle('fancy'))
 document.querySelector('#title-change').addEventListener('click',(e) =>{
 
   const titleList = document.querySelectorAll('my-card');
-
+  
   titleList.forEach(card=> card.title = 'RAAAAAAH');
 
  //document.querySelector('my-card').title = 'RAAAAAAH';
@@ -61,12 +61,13 @@ export class MyCard extends LitElement {
   static get tag() {
     return 'my-card';
   }
-
+  //Constructor required! (applies defaults)
   constructor() {
     super();
     this.title = "New Vid!";
     this.image = "https://variety.com/wp-content/uploads/2021/07/Rick-Astley-Never-Gonna-Give-You-Up.png";
     this.link = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
+    this.fancy = false;
   }
 
   static get styles() {
@@ -77,7 +78,15 @@ export class MyCard extends LitElement {
         width: 150px;
         border:solid;
         border-color:cyan;
+        margin:3px;
       }
+
+      :host([fancy]) {
+        background-color: pink;
+        border: 2px solid fuchsia;
+        box-shadow: 10px 5px 5px red;
+      }
+
       img{
         width:150px;
       }
@@ -95,6 +104,7 @@ export class MyCard extends LitElement {
         cursor:not-allowed;
       }
 
+    
       
     `;
   }
@@ -103,12 +113,12 @@ export class MyCard extends LitElement {
     return html`
       <div>
       <img src="${this.image}"/>
-
+      
       <h1>${this.title}</h1>
 
-      <a href="${this.link}">Please Click Me!</a>
-      
+      <slot></slot>
 
+      <a href="${this.link}">Please Click Me!</a>
       </div>`;
   }
 
@@ -116,7 +126,8 @@ export class MyCard extends LitElement {
     return {
       title: { type: String },
       image: { type: String },
-      link: { type: String},
+      link: { type: String },
+      fancy: { type: Boolean, reflect: true},
     };
   }
 }
