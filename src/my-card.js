@@ -68,17 +68,19 @@ export class MyCard extends LitElement {
     this.image = "https://variety.com/wp-content/uploads/2021/07/Rick-Astley-Never-Gonna-Give-You-Up.png";
     this.link = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
     this.fancy = false;
+    this.description = "boom bam, generic description";
   }
 
   static get styles() {
     return css`
       :host {
-        display: inline-block;
+        display: inline-flex;
         background-color:pink;
-        width: 150px;
+        width: 300px;
         border:solid;
         border-color:cyan;
         margin:3px;
+  
       }
 
       :host([fancy]) {
@@ -88,11 +90,13 @@ export class MyCard extends LitElement {
       }
 
       img{
-        width:150px;
+        width:300px;
+        height:180px;
       }
       div h1{
         text-align:center;
         font-size:20px;
+        overflow: auto;
       }
       div, a{
         text-align:center;
@@ -104,6 +108,25 @@ export class MyCard extends LitElement {
         cursor:not-allowed;
       }
 
+      details summary{
+      text-align: left;
+      font-size: 20px;
+      padding: 8px 0;
+      }
+
+      details[open] summary{
+        font-weight: bold;
+          }
+  
+      details div {
+        border: 2px solid black;
+        text-align: left;
+        padding: 8px;
+        height: 70px;
+        overflow: auto;
+          }
+
+      
     
       
     `;
@@ -116,10 +139,24 @@ export class MyCard extends LitElement {
       
       <h1>${this.title}</h1>
 
-      <slot></slot>
+      <details ?open="${this.fancy}" @toggle="${this.openChanged}">
+        <summary>Description</summary>
+        <div>
+          <slot>${this.description}</slot>
+        </div>
+        <button> <a href="${this.link}">Please Click Me!</a> </button>
+      </details>
 
-      <a href="${this.link}">Please Click Me!</a>
       </div>`;
+  }
+  openChanged(e) {
+    console.log(e.newState);
+    if (e.newState === "open") {
+      this.fancy = true;
+    }
+    else {
+      this.fancy = false;
+    }
   }
 
   static get properties() {
@@ -127,6 +164,7 @@ export class MyCard extends LitElement {
       title: { type: String },
       image: { type: String },
       link: { type: String },
+      description: { type: String },
       fancy: { type: Boolean, reflect: true},
     };
   }
