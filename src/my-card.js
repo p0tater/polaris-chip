@@ -1,4 +1,5 @@
 import { LitElement, html, css } from 'lit';
+import "@haxtheweb/meme-maker/meme-maker.js";
 
 /**
  * Now it's your turn. Here's what we need to try and do:
@@ -79,8 +80,8 @@ export class MyCard extends LitElement {
         width: 300px;
         border:solid;
         border-color:cyan;
-        margin:5px;
-        height: 400px;
+        margin: 5px;
+        height: 375px;
         border: 2px solid transparent;
       }
 
@@ -91,10 +92,8 @@ export class MyCard extends LitElement {
 
       }
 
-      img{
-        width:300px;
-        height:180px;
-      }
+    
+     
       div h1{
         text-align:center;
         font-size:20px;
@@ -129,16 +128,22 @@ export class MyCard extends LitElement {
           }
 
       
-    
+        meme-maker{
+          width: 300px;
+          height: 200px;
+        }
       
     `;
   }
-//@click=
+//@click= <img src="${this.image}"/>
   render() {
     return html`
       <div>
-      <img src="${this.image}"/>
-      
+      <meme-maker
+      image-url= ${this.image}  
+      bottom-text="work"
+      top-text="please">
+      </meme-maker>
       <h1>${this.title}</h1>
 
       <details ?open="${this.fancy}" @toggle="${this.openChanged}">
