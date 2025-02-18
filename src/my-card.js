@@ -79,14 +79,16 @@ export class MyCard extends LitElement {
         width: 300px;
         border:solid;
         border-color:cyan;
-        margin:3px;
-  
+        margin:5px;
+        height: 400px;
+        border: 2px solid transparent;
       }
 
       :host([fancy]) {
         background-color: pink;
         border: 2px solid fuchsia;
         box-shadow: 10px 5px 5px red;
+
       }
 
       img{
